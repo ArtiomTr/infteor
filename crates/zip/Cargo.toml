@@ -1,0 +1,13 @@
+[package]
+name = 'zip'
+edition = '2021'
+
+[lib]
+
+[dependencies]
+anyhow = "1.0.93"
+console = "0.15.8"
+indicatif = "0.17.9"
+
+[features]
+logging = []
