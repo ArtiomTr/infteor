@@ -1,8 +1,10 @@
 [workspace]
-members = ['./crates/zip', './fuzz']
+members = ['./crates/huffman', './fuzz', './crates/lz78', './crates/bit_utils']
 
 [workspace.dependencies]
-zip = { path = "./crates/zip" }
+huffman = { path = "./crates/huffman" }
+bit_utils = { path = "./crates/bit_utils" }
+lz78 = { path = "./crates/lz78" }
 
 [package]
 name = "infteor"
@@ -12,4 +14,5 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.93"
 clap = { version = "4.5.21", features = ["derive"] }
-zip = { workspace = true, features = ["logging"]}
+huffman = { workspace = true, features = ["logging"]}
+lz78 = { workspace = true }

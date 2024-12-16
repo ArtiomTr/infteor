@@ -1,11 +1,13 @@
 use anyhow::Result;
 use std::io::{BufReader, BufWriter, Read, Seek, Write};
+use bit_utils::{
+    write::WordWriter,
+    read::{BitReader, ToWordIter}
+};
 
 use crate::{
     histogram::Histogram,
-    read::{BitReader, ToWordIter},
     tree::HuffmanTree,
-    write::WordWriter,
 };
 
 pub fn compress(word_size: u8, input: impl Read + Seek, output: impl Write) -> Result<()> {

@@ -1,0 +1,7 @@
+[package]
+name = 'bit_utils'
+edition = '2021'
+
+[lib]
+
+[dependencies]

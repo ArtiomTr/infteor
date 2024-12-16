@@ -9,7 +9,8 @@ cargo-fuzz = true
 
 [dependencies]
 libfuzzer-sys = "0.4"
-zip = { workspace = true }
+huffman = { workspace = true }
+bit_utils = { workspace = true }
 anyhow = "1.0.93"
 
 [dependencies.infteor]

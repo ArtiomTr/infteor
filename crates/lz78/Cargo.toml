@@ -1,0 +1,9 @@
+[package]
+name = 'lz78'
+edition = '2021'
+
+[lib]
+
+[dependencies]
+bit_utils = { workspace = true }
+anyhow = "1.0.93"

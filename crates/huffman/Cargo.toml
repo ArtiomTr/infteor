@@ -1,5 +1,5 @@
 [package]
-name = 'zip'
+name = 'huffman'
 edition = '2021'
 
 [lib]
@@ -8,6 +8,7 @@ edition = '2021'
 anyhow = "1.0.93"
 console = "0.15.8"
 indicatif = "0.17.9"
+bit_utils = { workspace = true }
 
 [features]
 logging = []

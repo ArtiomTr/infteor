@@ -17,8 +17,8 @@ enum Commands {
         input: PathBuf,
         #[arg(long, short)]
         output: Option<PathBuf>,
-        #[arg(long, value_parser=clap::value_parser!(u8).range(2..17))]
-        word_size: u8,
+        #[arg(long)]
+        prune: i64,
     },
     Decompress {
         input: PathBuf,
@@ -32,20 +32,21 @@ fn run() -> Result<()> {
 
     match args.command {
         Commands::Compress {
-            word_size,
+            prune,
             input,
             output,
         } => {
             let output = File::create(output.unwrap_or(input.clone().with_added_extension("hf")))?;
             let input = File::open(input)?;
 
-            zip::compress(word_size, input, output)?;
+            // zip::compress(word_size, input, output)?;
+            lz78::encode(input, output, prune)?;
         }
         Commands::Decompress { input, output } => {
             let output = File::create(output.unwrap_or(input.clone().with_extension("")))?;
             let input = File::open(input)?;
 
-            zip::decompress(input, output)?;
+            lz78::decode(input, output)?;
         }
     }
 

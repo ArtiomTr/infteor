@@ -6,7 +6,8 @@ use std::{
     iter::FromIterator,
 };
 
-use crate::{histogram::Histogram, read::BitReader, write::WordWriter};
+use crate::histogram::Histogram;
+use bit_utils::{read::BitReader, write::WordWriter};
 
 pub struct HuffmanTree {
     word_size: u8,
@@ -256,7 +257,8 @@ impl From<Histogram> for HuffmanTree {
 mod test {
     use std::{collections::HashMap, convert::TryInto};
 
-    use crate::{histogram::Histogram, read::BitReader, tree::HuffmanTree, write::WordWriter};
+    use crate::{histogram::Histogram, tree::HuffmanTree};
+    use bit_utils::{read::BitReader, write::WordWriter};
 
     #[test]
     fn should_correctly_build_tree_from_histogram() {

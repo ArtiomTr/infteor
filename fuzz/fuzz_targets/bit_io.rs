@@ -1,7 +1,7 @@
 #![no_main]
 
 use libfuzzer_sys::fuzz_target;
-use zip::{read::BitReader, write::WordWriter};
+use bit_utils::{read::BitReader, write::WordWriter};
 
 fuzz_target!(|data: &[u8]| {
     let mut output = Vec::new();

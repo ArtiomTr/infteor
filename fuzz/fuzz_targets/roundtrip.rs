@@ -3,7 +3,7 @@
 use std::u8;
 
 use libfuzzer_sys::fuzz_target;
-use zip::{compress, decompress, utils::SeekableSliceReader};
+use huffman::{compress, decompress, utils::SeekableSliceReader};
 
 fuzz_target!(|data: &[u8]| {
     if data.len() > 0 {

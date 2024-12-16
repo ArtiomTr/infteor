@@ -1,7 +1,7 @@
-use crate::read::ToWordIter;
+use bit_utils::read::ToWordIter;
 use anyhow::Result;
 use indicatif::ProgressBar;
-use std::{convert::TryFrom, fmt::Display, io::Read};
+use std::{convert::TryFrom, io::Read};
 
 #[derive(Debug, Clone)]
 pub struct Histogram {
