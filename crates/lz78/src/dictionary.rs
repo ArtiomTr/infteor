@@ -43,12 +43,12 @@ impl Dictionary {
 
     pub fn add(&mut self, word: &[u8]) -> Option<(usize, u8)> {
         if let PruningStrategy::Drop(max_len) = self.strategy {
-            if max_len as usize >= self.nodes.len() {
+            if self.nodes.len() >= max_len as usize {
                 self.nodes.clear();
                 self.index.clear();
             }
         } else if let PruningStrategy::Freeze(max_len) = self.strategy {
-            if max_len as usize >= self.nodes.len() {
+            if self.nodes.len() >= max_len as usize {
                 return Some((0, *word.last().unwrap()))
             }
         }
