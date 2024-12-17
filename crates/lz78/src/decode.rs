@@ -16,7 +16,6 @@ pub fn decode(reader: impl Read, writer: impl Write) -> Result<()> {
 
     loop {
         let index = elias::read_gamma_elias(&mut reader)?;
-        print!("{} {}", index, dictionary.len());
 
         if index == dictionary.len() as u64 + 1 {
             break;
@@ -34,7 +33,6 @@ pub fn decode(reader: impl Read, writer: impl Write) -> Result<()> {
         let word = reader.read(8)? as u8;
         
         if index == 0 {
-            println!(" {:?}", &[word]);
             writer.write(&[word])?;
             dictionary.add(&[word]).unwrap();
         } else {
@@ -43,7 +41,6 @@ pub fn decode(reader: impl Read, writer: impl Write) -> Result<()> {
             };
 
             sentence.push(word);
-            println!(" {:?}", sentence);
             writer.write(&sentence)?;
             dictionary.add(&sentence).unwrap();
         }

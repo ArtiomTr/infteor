@@ -12,6 +12,7 @@ libfuzzer-sys = "0.4"
 huffman = { workspace = true }
 bit_utils = { workspace = true }
 anyhow = "1.0.93"
+lz78 = { workspace = true }
 
 [dependencies.infteor]
 path = ".."
@@ -26,6 +27,27 @@ bench = false
 [[bin]]
 name = "roundtrip"
 path = "fuzz_targets/roundtrip.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "lz78"
+path = "fuzz_targets/lz78.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "lz78_freeze"
+path = "fuzz_targets/lz78_freeze.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "lz78_trunc"
+path = "fuzz_targets/lz78_trunc.rs"
 test = false
 doc = false
 bench = false

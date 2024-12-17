@@ -24,7 +24,6 @@ pub fn encode(reader: impl Read, writer: impl Write, strategy: i64) -> Result<()
         word_buf.push(buf[0]);
 
         if let Some(w) = dictionary.add(&word_buf) {
-            println!("{} {} {:?}", w.0, dictionary.len(), word_buf);
             elias::write_gamma_elias(&mut writer, w.0 as u64)?;
             writer.write((w.1 as u64, u8::BITS as usize))?;
             word_buf.clear();
